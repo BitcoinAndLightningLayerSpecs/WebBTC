@@ -6,6 +6,7 @@
 		"node": "14"
 	},
   "scripts": {
+		"start": "vue-cli-service build",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
