@@ -2,11 +2,11 @@
   "name": "specwrapper",
   "version": "0.1.0",
   "private": true,
-	"engines": {
-		"node": "14"
-	},
+  "engines": {
+    "node": "14"
+  },
   "scripts": {
-		"start": "vue-cli-service build",
+    "start": "vue-cli-service build",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
@@ -17,6 +17,7 @@
     "vuetify": "^2.4.0"
   },
   "devDependencies": {
+    "@vue/cli": "^4.5.15",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
