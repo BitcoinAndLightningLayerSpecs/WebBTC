@@ -59,9 +59,7 @@
         Requet: {{item.bitcoin.signature}}
         <div v-show="item.bitcoin.response">
           Response:
-          <pre>
-            {{item.bitcoin.response}}
-          </pre>
+          <pre>{{item.bitcoin.response}}</pre>
         </div>
 
       </v-col>
@@ -76,9 +74,7 @@
         Requet: {{item.webln.signature}}
         <div v-show="item.webln.response">
           Response:
-          <pre>
-            {{item.webln.response}}
-          </pre>
+          <pre>{{item.webln.response}}</pre>
         </div>
         </div>
       </v-col>
@@ -90,9 +86,7 @@
         <p><v-btn @click="item.wrapper.call()">{{item.name}}</v-btn></p>
         Requet: {{item.wrapper.signature}}
         <div v-show="item.wrapper.response">
-        <pre>
-          {{item.wrapper.signature}}
-        </pre>
+        <pre>{{item.wrapper.response}}</pre>
         </div>
       </v-col>
     </v-row>
@@ -136,10 +130,11 @@
           }
         },
         wrapper: {
+          response: false,
           signature: "enable()",
           call() {
-            this.bitcoin.call()
-            this.webln.call()
+            this.response = {
+            }
           } 
         }
       },{
@@ -156,24 +151,25 @@
           signature: "getInfo()",
           response: false,
           call() {            
-            window.webln.getInfo().then((data,r) => {
-              console.log(data,r )
+            window.webln.getInfo().then((data) => {
               this.response = data
             })
           }
         },
         wrapper: {
+          response: false,
           signature: "getInfo()",
           call() {
-            this.bitcoin.call()
-            this.webln.call()
+            this.response = {
+
+            }
           }
         }
       },{
         name: 'Message Signature',
         description: 'Sign a message',
         bitcoin: {
-          signature: "signMessage()",
+          signature: "signMessage(msg, address)",
           response: false,
           call() {
             window.bitcoin.request({
@@ -182,7 +178,7 @@
             }).then((data) => {
               window.bitcoin.request({
                 method: 'wallet_signMessage',
-                params: ['x', data[0].address]
+                params: ['Message', data[0].address]
               }).then((data) => {
                 this.response = data
               })
@@ -190,7 +186,7 @@
           }
         },
         webln: {
-          signature: "signMessage()",
+          signature: "signMessage(msg)",
           response: false,
           call() {
             window.webln.signMessage("test").then((data) => {
@@ -199,82 +195,97 @@
           }
         },
         wrapper: {
-          signature: "signMessage()",
+          response: false,
+          signature: "signMessage(msg)",
           call() {
-            this.bitcoin()
-            this.webln()
+            this.response = {}
           }
         }
       },{
         name: 'Verify Message',
         description: 'Verify a message and signature',
         bitcoin: {
-          signature: "verifyMessage()",
+          response: false,
+          signature: "verifyMessage(signature, msg)",
           call() {
             console.log("Not implemented")
           }
         },
         webln: {
-          signature: "verifyMessage()",
+          response: false,
+          signature: "verifyMessage(signature, msg)",
           call() {
-            window.webln.verifyMessage("d631ou68jhccqn4pnqreijorrpbfkb85durtw1r75uxj8s3b4w5rc718fx36rco7y4wtgjyytk5edhrrc8bgx1afr4oaxs9u983o5kyc", "data").then(console.log)
+            window.webln.verifyMessage("d631ou68jhccqn4pnqreijorrpbfkb85durtw1r75uxj8s3b4w5rc718fx36rco7y4wtgjyytk5edhrrc8bgx1afr4oaxs9u983o5kyc", "data").then((data) => {
+              this.response = data
+            })
           }
         },
         wrapper: {
-          signature: "verifyMessage()",
+          response: false,
+          signature: "verifyMessage(signature, msg)",
           call() {
-            this.bitcoin()
-            this.webln()
+            this.response = {}
           }
         }
       },{
         name: 'Payment',
         description: 'makeInvoice / sendTransaction',
         bitcoin: {
-          signature: "sendTransaction()",
+          response: false,
+          signature: "sendTransaction(address, amount)",
           call() {
             window.bitcoin.request({
               method: 'wallet_sendTransaction',
-              params: ["mpUVDdBihqyMvzDmWwpvWLD92tDebh7ZCV",10000]
-            }).then(console.log)
+              params: ["mpUVDdBihqyMvzDmWwpvWLD92tDebh7ZCV", 10000]
+            }).then((data) => {
+              this.response = data
+            })
           }
         },
         webln: {
-          signature: "sendPayment()",
+          signature: "sendPayment(lnInvoice)",
           call() {
             window.webln.sendPayment("lnbcrt10n1pscucp2pp592nxaguujcwgq5fg8v7tlakf9rvxqc9taugdxku0yyeca8ctncrqdqug9kxy7fqd9h8vmmfvdjjqmt9d4hscqzpgxqyz5vqsp579mntt5nzvpylx8nt09a0lkw7k2xyec2ypc8tdzsntz5as53rnls9qyyssqxzmed9es4hmucdlpghrqdzpapmelqw6hmt4c8ed8g4q6nsuu7q0j9glvda6sk8rr0t6mz5x4q9vh0d5y3kk6wwut54f62vdxqhld54gqq6awdj").then(console.log)
           }
         },
         wrapper: {
-          signature: "xxx()",
+          response: false,
+          signature: "sendPayment(?)",
           call() {
-            this.bitcoin()
-            this.webln()
+            this.response = {}
           }
         }
       },{
         name: 'Addresses',
         description: 'Get Address',
         bitcoin: {
-          signature: "getAddresses(0, 1, false)",
+          response: false,
+          signature: "getAddresses(index, limit, isChange)",
           call() {
             window.bitcoin.request({
               method: 'wallet_getAddresses',
               params: [0, 1, false]
-            }).then(console.log)
+            }).then((data) => {
+              this.response = data
+            })
           }
         },
         webln: {
-          signature: "makeInvoice(1,'Message')",
+          response:false,
+          signature: "makeInvoice(sats, label)",
           call() {
-            window.webln.makeInvoice(1, "message")
+            window.webln.makeInvoice(1, "message").then((data) => {
+              this.response = data
+            })
           }
         },
         wrapper: {
-          signature: "xxx",
+          response: false,
+          signature: "???",
           call() {
-            this.bitcoin()
-            this.webln()
+            this.response = {
+
+            }
           }
         }
       }]
