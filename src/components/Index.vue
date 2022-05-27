@@ -57,7 +57,7 @@
         cols="3"
       >
         <p><v-btn @click="item.bitcoin.call()">{{item.name}}</v-btn></p>
-        Requet: {{item.bitcoin.signature}}
+        Request: {{item.bitcoin.signature}}
         <div v-show="item.bitcoin.response">
           Response:
           <pre>{{item.bitcoin.response}}</pre>
@@ -72,7 +72,7 @@
         <p><v-btn @click="item.webln.call()">{{item.name}}</v-btn></p>
 
         <div>
-        Requet: {{item.webln.signature}}
+        Request: {{item.webln.signature}}
         <div v-show="item.webln.response">
           Response:
           <pre>{{item.webln.response}}</pre>
@@ -85,7 +85,7 @@
         cols="3"
       >
         <p><v-btn @click="item.wrapper.call()">{{item.name}}</v-btn></p>
-        Requet: {{item.wrapper.signature}}
+        Request: {{item.wrapper.signature}}
         <div v-show="item.wrapper.response">
         <pre>{{item.wrapper.response}}</pre>
         </div>
