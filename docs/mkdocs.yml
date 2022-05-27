@@ -1,0 +1,27 @@
+site_name: WebBTC Specification
+nav:
+    - Overview: index.md
+    - API Reference:
+        - Enable:
+            - Enabling: enable.md
+        - Information:
+            - info: info.md
+        - Signatures:
+            - Signing: signatures/sign.md
+            - Verification: signatures/verify.md
+        - Invoices:
+            - makeInvoice: invoices/makeInvoice.md
+            - sendPayment: transactions/send.md
+            - sendTransaction: transactions/sendTransaction.md
+        - Addresses:
+            - getAddress: addresses/getAddress.md
+        - Extening: extendability/extending.md
+    - Namespace Squatting: squatting.md
+    - Resources: references.md
+extra_css: 
+    - css/custom.css
+theme:
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - javascript
