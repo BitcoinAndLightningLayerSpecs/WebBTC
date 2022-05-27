@@ -49,6 +49,7 @@
       >
         <h2>{{item.name}}</h2>
         <p>{{item.description}}</p>
+        <p><a :href="item.docs">Docs</a></p>
       </v-col>
 
       <v-col
@@ -110,6 +111,7 @@
       items : [{
         name: 'Enable Wallet',
         description: 'Enable wallet API',
+        docs: 'https://specdemo.synonym.to/docs/enable/',
         bitcoin: {
           signature : "enable()",
           params: '[]',
@@ -134,12 +136,14 @@
           signature: "enable()",
           call() {
             this.response = {
+              enabled: true
             }
           } 
         }
       },{
         name: 'Wallet Info',
         description: 'Get information',
+        docs: 'https://specdemo.synonym.to/docs/info/',
         bitcoin: {
           signature: "NA",
           response: false,
@@ -161,13 +165,27 @@
           signature: "getInfo()",
           call() {
             this.response = {
-
+              "version" : 1,
+              "supports" : [
+                "bip39",
+                "bip32"
+              ],
+              "methods": [ // schema for available methods
+                "enable",
+                "getInfo",
+                "getAddress",
+                "signMessage",
+                "verifyMessage",
+                "makeInvoice",
+                "sendPayment"
+              ]
             }
           }
         }
       },{
         name: 'Message Signature',
         description: 'Sign a message',
+        docs: 'https://specdemo.synonym.to/docs/signatures/sign/',
         bitcoin: {
           signature: "signMessage(msg, address)",
           response: false,
@@ -198,12 +216,13 @@
           response: false,
           signature: "signMessage(msg)",
           call() {
-            this.response = {}
+            this.response = "2047ab7b010687146ef9d69648cbdc4610b7ebaf6f21d7255f2113fe87b24d4b4264eef980d21f29d3ba81b369e41bf532b1292021af16c6773187c34d090b7efb"
           }
         }
       },{
         name: 'Verify Message',
         description: 'Verify a message and signature',
+        docs: 'https://specdemo.synonym.to/docs/signatures/verify/',
         bitcoin: {
           response: false,
           signature: "verifyMessage(signature, msg)",
@@ -224,19 +243,52 @@
           response: false,
           signature: "verifyMessage(signature, msg)",
           call() {
-            this.response = {}
+            this.response = true
           }
         }
       },{
-        name: 'Payment',
-        description: 'makeInvoice / sendTransaction',
+        name: 'Invoice',
+        description: 'makeInvoice',
+        docs: 'https://specdemo.synonym.to/docs/invoices/makeInvoice/',
         bitcoin: {
           response: false,
-          signature: "sendTransaction(address, amount)",
+          signature: "makeInvoice(bip21uri)",
           call() {
             window.bitcoin.request({
-              method: 'wallet_sendTransaction',
+              method: 'makeInvoice',
               params: ["mpUVDdBihqyMvzDmWwpvWLD92tDebh7ZCV", 10000]
+            }).then((data) => {
+              this.response = data
+            })
+          }
+        },
+        webln: {
+          signature: "makeInvoice(amount)",
+          call() {
+            window.webln.makeInvoice({amount:1}).then(console.log)
+          }
+        },
+        wrapper: {
+          response: false,
+          signature: "sendPayment(amount)",
+          call() {
+            this.response = {
+              paymentRequest: 'lnbc10n1p3x9thxpp59xj4cmm26jnpnrfekgncyj42e9lxredz…734s07kxt8hl2s6wuv20kh7kw7h5lurtmyscsrwgkgptn4z2j', rHash: '29a55c6f6ad4a6198d39b227824aaac97e61e5a2428db7dab7f8b097ae5d28ca',
+              paymentRequestUri: 'bitcoin:address?amount=0&label=Label&message=Message'
+            }
+          }
+        }
+      },{
+        name: 'Send Payment',
+        description: 'sendPayment',
+        docs: 'https://specdemo.synonym.to/docs/transactions/send/',
+        bitcoin: {
+          response: false,
+          signature: "sendPayment(address, amount)",
+          call() {
+            window.bitcoin.request({
+              method: 'sendPayment',
+              params: [""]
             }).then((data) => {
               this.response = data
             })
@@ -252,12 +304,17 @@
           response: false,
           signature: "sendPayment(?)",
           call() {
-            this.response = {}
+            this.response = {
+              "preimage": "6665333431626331363632653134386630643435626532626165383332323333",
+              "paymentHash": "d221b791c7ef1996b25424ff7cfb4ddf8d4444076666ce6c4ba0f6a24d99117e",
+              "txid":"ba8d75e01ab32932d9ac899418a6bec95f2869e1b1c161b871f661c5a8789a0e"
+            }
           }
         }
       },{
         name: 'Addresses',
         description: 'Get Address',
+        docs: 'https://specdemo.synonym.to/docs/addresses/getAddress/',
         bitcoin: {
           response: false,
           signature: "getAddresses(index, limit, isChange)",
@@ -283,9 +340,47 @@
           response: false,
           signature: "???",
           call() {
-            this.response = {
-
-            }
+            this.response = [{
+                address: "tb1qqwn2dp8mundc6mf3xt4c8puqakk0vrcgzdayq2",
+                derivationPath: "84'/1'/0'/0/0",
+                index: 0
+            }, {
+                address: "tb1qca6k2ke5jdrwmdqcku4eex4k9hzzzhzshhsgpn",
+                derivationPath: "84'/1'/0'/0/1",
+                index: 1
+            }, {
+                address: "tb1q6e36gyc8vhv97k9m2uldndsl8xg80yd49mhqpx",
+                derivationPath: "84'/1'/0'/0/2",
+                index: 2
+            }, {
+                address: "tb1qvphc32p0qxl2fm89r04epmtxvdt7l7dl5a955c",
+                derivationPath: "84'/1'/0'/0/3",
+                index: 3
+            }, {
+                address: "tb1qxm90ahvjnut9d7mw8d0r22czldnu3kqyef55nn",
+                derivationPath: "84'/1'/0'/0/4",
+                index: 4
+            }, {
+                address: "tb1q8wjjk4gu3am2tjg833qulqt69ny8e24vt8ccj6",
+                derivationPath: "84'/1'/0'/0/5",
+                index: 5
+            }, {
+                address: "tb1q7jkkn80maps9z068u22jrpv65t9epjlrl4zpzj",
+                derivationPath: "84'/1'/0'/0/6",
+                index: 6
+            }, {
+                address: "tb1qrzpw5rrm9w8qf3v3y43av3npeqhgp9lng5xtyk",
+                derivationPath: "84'/1'/0'/0/7",
+                index: 7
+            }, {
+                address: "tb1q9vu3j2m6u48sv53g7e24lfx2c9mavv0ee6wr02",
+                derivationPath: "84'/1'/0'/0/8",
+                index: 8
+            }, {
+                address: "tb1q0m2f0vjc4njy5d0vzmlwre8jdtar9x9w7nz9jg",
+                derivationPath: "84'/1'/0'/0/9",
+                index: 9
+            }]
           }
         }
       }]
