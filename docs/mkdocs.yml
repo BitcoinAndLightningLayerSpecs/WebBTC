@@ -15,7 +15,7 @@ nav:
             - sendTransaction: transactions/sendTransaction.md
         - Addresses:
             - getAddress: addresses/getAddress.md
-        - Extening: extendability/extending.md
+        - Extending: extendability/extending.md
     - Namespace Squatting: squatting.md
     - Resources: references.md
 extra_css: 
