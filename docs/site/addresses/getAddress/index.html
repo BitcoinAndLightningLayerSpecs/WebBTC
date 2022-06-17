@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>getAddress - WebBTC Specification</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "getAddress";
+        var mkdocs_page_input_path = "addresses/getAddress.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/javascript.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> WebBTC Specification
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Overview</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="#">Enable</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../enable/">Enabling</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Information</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../info/">info</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Signatures</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../signatures/sign/">Signing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../signatures/verify/">Verification</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Invoices</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../invoices/makeInvoice/">makeInvoice</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../transactions/send/">sendPayment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../transactions/sendTransaction/">sendTransaction</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Addresses</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">getAddress</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#syntax">Syntax</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns">Returns</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example">Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#notes">Notes</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../extendability/extending/">Extending</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../squatting/">Namespace Squatting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../references/">Resources</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">WebBTC Specification</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>API Reference &raquo;</li>
+          <li>Addresses &raquo;</li><li>getAddress</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="get-addresses-from-wallet">Get addresses from wallet</h1>
+<p>The <code>getAddresses</code> method is called to obtain an onchain address from the wallet. </p>
+<blockquote>
+<p><strong><em>NOTE:</em></strong><br />
+WebLN implementations might choose to implement this method when exposing access to the onchain wallet. </p>
+</blockquote>
+<h2 id="syntax">Syntax</h2>
+<pre><code>getAddresses(index?, num?, change?)
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li>index: Number (default 0) - Which index to start from <span class="badge">Optional</span></li>
+<li>num: Number (default 1) - Number of addresses to retrieve <span class="badge">Optional</span></li>
+<li>change: Boolean (default false) - true for change addresses, false for external <span class="badge">Optional</span></li>
+</ul>
+<h2 id="returns">Returns</h2>
+<ul>
+<li>AddressObjectArray - An array of bitcoin address objects <span class="badge">Required</span><ul>
+<li>address: String - Bitcoin address <span class="badge">Required</span></li>
+<li>derivationPath: String - Derivation path of the address e.g. "84'/1'/0'/0/0" <span class="badge">Optional</span></li>
+<li>publicKey: String(Hex) - The public key for the derivation path <span class="badge">Optional</span></li>
+<li>index: Number - Index of the address <span class="badge">Optional</span></li>
+</ul>
+</li>
+</ul>
+<h2 id="example">Example</h2>
+<pre><code>await window.webbtc.getAddresses(0, 10, false)
+[{
+    address: &quot;tb1qqwn2dp8mundc6mf3xt4c8puqakk0vrcgzdayq2&quot;,
+    derivationPath: &quot;84'/1'/0'/0/0&quot;,
+    publicKey: {
+        …},
+    index: 0
+} {
+    address: &quot;tb1qca6k2ke5jdrwmdqcku4eex4k9hzzzhzshhsgpn&quot;,
+    derivationPath: &quot;84'/1'/0'/0/1&quot;,
+    publicKey: {
+        …},
+    index: 1
+} {
+    address: &quot;tb1q6e36gyc8vhv97k9m2uldndsl8xg80yd49mhqpx&quot;,
+    derivationPath: &quot;84'/1'/0'/0/2&quot;,
+    publicKey: {
+        …},
+    index: 2
+} {
+    address: &quot;tb1qvphc32p0qxl2fm89r04epmtxvdt7l7dl5a955c&quot;,
+    derivationPath: &quot;84'/1'/0'/0/3&quot;,
+    publicKey: {
+        …},
+    index: 3
+} {
+    address: &quot;tb1qxm90ahvjnut9d7mw8d0r22czldnu3kqyef55nn&quot;,
+    derivationPath: &quot;84'/1'/0'/0/4&quot;,
+    publicKey: {
+        …},
+    index: 4
+} {
+    address: &quot;tb1q8wjjk4gu3am2tjg833qulqt69ny8e24vt8ccj6&quot;,
+    derivationPath: &quot;84'/1'/0'/0/5&quot;,
+    publicKey: {
+        …},
+    index: 5
+} {
+    address: &quot;tb1q7jkkn80maps9z068u22jrpv65t9epjlrl4zpzj&quot;,
+    derivationPath: &quot;84'/1'/0'/0/6&quot;,
+    publicKey: {
+        …},
+    index: 6
+} {
+    address: &quot;tb1qrzpw5rrm9w8qf3v3y43av3npeqhgp9lng5xtyk&quot;,
+    derivationPath: &quot;84'/1'/0'/0/7&quot;,
+    publicKey: {
+        …},
+    index: 7
+} {
+    address: &quot;tb1q9vu3j2m6u48sv53g7e24lfx2c9mavv0ee6wr02&quot;,
+    derivationPath: &quot;84'/1'/0'/0/8&quot;,
+    publicKey: {
+        …},
+    index: 8
+} {
+    address: &quot;tb1q0m2f0vjc4njy5d0vzmlwre8jdtar9x9w7nz9jg&quot;,
+    derivationPath: &quot;84'/1'/0'/0/9&quot;,
+    publicKey: {
+        …},
+    index: 9
+}]
+</code></pre>
+<h2 id="notes">Notes</h2>
+<p>Implemented for on-chain, might however not be supported by off-chain wallets</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../transactions/sendTransaction/" class="btn btn-neutral float-left" title="sendTransaction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../extendability/extending/" class="btn btn-neutral float-right" title="Extending">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../transactions/sendTransaction/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../extendability/extending/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

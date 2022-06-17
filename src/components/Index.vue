@@ -111,7 +111,7 @@
       items : [{
         name: 'Enable Wallet',
         description: 'Enable wallet API',
-        docs: 'https://specdemo.synonym.to/docs/enable/',
+        docs: '/docs/enable/',
         bitcoin: {
           signature : "enable()",
           params: '[]',
@@ -143,7 +143,7 @@
       },{
         name: 'Wallet Info',
         description: 'Get information',
-        docs: 'https://specdemo.synonym.to/docs/info/',
+        docs: '/docs/info/',
         bitcoin: {
           signature: "NA",
           response: false,
@@ -185,7 +185,7 @@
       },{
         name: 'Message Signature',
         description: 'Sign a message',
-        docs: 'https://specdemo.synonym.to/docs/signatures/sign/',
+        docs: '/docs/signatures/sign/',
         bitcoin: {
           signature: "signMessage(msg, address)",
           response: false,
@@ -222,7 +222,7 @@
       },{
         name: 'Verify Message',
         description: 'Verify a message and signature',
-        docs: 'https://specdemo.synonym.to/docs/signatures/verify/',
+        docs: '/docs/signatures/verify/',
         bitcoin: {
           response: false,
           signature: "verifyMessage(signature, msg)",
@@ -249,7 +249,7 @@
       },{
         name: 'Invoice',
         description: 'makeInvoice',
-        docs: 'https://specdemo.synonym.to/docs/invoices/makeInvoice/',
+        docs: '/docs/invoices/makeInvoice/',
         bitcoin: {
           response: false,
           signature: "makeInvoice(bip21uri)",
@@ -281,7 +281,7 @@
       },{
         name: 'Send Payment',
         description: 'sendPayment',
-        docs: 'https://specdemo.synonym.to/docs/transactions/send/',
+        docs: '/docs/transactions/send/',
         bitcoin: {
           response: false,
           signature: "sendPayment(address, amount)",
@@ -314,7 +314,7 @@
       },{
         name: 'Addresses',
         description: 'Get Address',
-        docs: 'https://specdemo.synonym.to/docs/addresses/getAddress/',
+        docs: '/docs/addresses/getAddress/',
         bitcoin: {
           response: false,
           signature: "getAddresses(index, limit, isChange)",

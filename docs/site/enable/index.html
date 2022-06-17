@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Enabling - WebBTC Specification</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Enabling";
+        var mkdocs_page_input_path = "enable.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/javascript.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> WebBTC Specification
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">API Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Enable</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Enabling</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#syntax">Syntax</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#returns">Returns</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example">Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#notes">Notes</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Information</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../info/">info</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Signatures</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../signatures/sign/">Signing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../signatures/verify/">Verification</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Invoices</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../invoices/makeInvoice/">makeInvoice</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../transactions/send/">sendPayment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../transactions/sendTransaction/">sendTransaction</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Addresses</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../addresses/getAddress/">getAddress</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../extendability/extending/">Extending</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../squatting/">Namespace Squatting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../references/">Resources</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">WebBTC Specification</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>API Reference &raquo;</li>
+          <li>Enable &raquo;</li><li>Enabling</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="enable-wallet">Enable Wallet</h1>
+<p>The <code>enable</code> method is called to allow access to further API methods from the wallet.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code>enable()
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<p>None</p>
+<h2 id="returns">Returns</h2>
+<ul>
+<li>Object<ul>
+<li>enabled : Boolean <span class="badge">Required</span></li>
+<li>addresses : AddressObjArray <span class="badge">Optional</span><ul>
+<li>address: String</li>
+<li>derivationPath: String</li>
+<li>publicKey: String</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong><em>NOTE:</em></strong><br />
+The AddressObjArray here can be returned for Onchain wallets but can also be used ny WebLN wallets which also expose the onchain wallet functions. This typically is used to show that a wallet is connected to the page. </p>
+</blockquote>
+<p><img alt="ENABLED ON WEBSITE" src="/assets/enable.png" /></p>
+<h2 id="example">Example</h2>
+<pre><code>// Enable wallet
+window.webbtc.enable()
+
+{
+  address: {
+    address: &quot;bc1q9zw3q496dcx2qu5pvhvg0zwfsxgj79nhh5rqct&quot;
+    derivationPath: &quot;84'/0'/0'/0/0&quot;
+    publicKey: &quot;031ecb71f390fcffc8727bedc5fb563e7bf90cd9725b1519e1ef74a16ca7a30fe3&quot;
+  },
+  success: true
+}
+</code></pre>
+<pre><code>// Check if the wallet is enabled 
+window.webbtc.enabled 
+
+true
+</code></pre>
+<pre><code>// Check if wallet is enabled, invoke enable when false
+if (!window.webbtc.enabled) window.webbtc.enable()
+</code></pre>
+<h2 id="notes">Notes</h2>
+<p>Application specific on wether or not to trust once or always. On invoking the <code>enable</code> call the application developer provides an interface which may or may not prompt the user to accept the request.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../info/" class="btn btn-neutral float-right" title="info">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../info/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
