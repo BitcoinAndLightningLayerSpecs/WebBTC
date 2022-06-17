@@ -1,6 +1,6 @@
 # Extendability
 
-There is room for extending this api through a request method. This method might also be useful as a base from which all the other methods in the specification might have wrapper methods. 
+There is room for extending this API through a request method. This method might also be useful as a base from which all the other methods in the specification might have wrapper methods. 
 
 ## Syntax
 
@@ -19,7 +19,7 @@ window.webbtc.request(method, params)
 - Promise | Object
 
 > **_NOTE:_**  
-This call might be asynchronus is would return a promise based on wether or not the payment has been broadcast <span class="badge">Onchain</span> and or processed successfully 
+This call might be asynchronous is would return a promise based on wether or not the payment has been broadcast <span class="badge">Onchain</span> and or processed successfully 
 
 ## Example
 
