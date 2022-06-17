@@ -1,6 +1,6 @@
 # Get addresses from wallet
 
-The `getAddresses` method is called to obtain an address from the onchain wallet of the wallet. 
+The `getAddresses` method is called to obtain an onchain address from the wallet. 
 
 > **_NOTE:_**  
 WebLN implementations might choose to implement this method when exposing access to the onchain wallet. 

@@ -17,7 +17,7 @@ sendPayment(String)
 - Promise
 
 > **_NOTE:_**  
-This call is asynchronus is would return a promise based on wether or not the payment has been broadcast <span class="badge">Onchain</span> and or processed successfully <span class="badge">WebLN</span>.
+This call is asynchronous is would return a promise based on wether or not the payment has been broadcast <span class="badge">Onchain</span> and or processed successfully <span class="badge">WebLN</span>.
 
 ## Example
 
