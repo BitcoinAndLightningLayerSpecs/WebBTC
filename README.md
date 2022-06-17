@@ -6,7 +6,7 @@ Historically, Provider implementations have exhibited conflicting interfaces and
 
 Historically, providers have been made available as `window.bitcoin` or `window.webln` in web browsers, but this convention is not part of the specification.
 
-A list of current work in progress can be tracked from the [issues](https://github.com/BitcoinAndLightningLayerSpecs/playground/issues) tab in the [playground repository](https://github.com/BitcoinAndLightningLayerSpecs/playground/issues), which includes a functional spec demonstration.
+A list of current work in progress can be tracked from the [issues](https://github.com/BitcoinAndLightningLayerSpecs/WebBTC/issues) tab in the [playground repository](https://github.com/BitcoinAndLightningLayerSpecs/WebBTC/issues), which includes a functional spec demonstration.
 
 ## Project setup
 ```
